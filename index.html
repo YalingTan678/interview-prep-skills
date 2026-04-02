@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Prep Skills - For University Students</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0f;
+    color: #e0e0e0;
+    overflow-x: hidden;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .hero .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: #94a3b8;
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .hero .tag-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .tag {
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .stat { text-align: center; }
+  .stat .num {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .stat .label { font-size: 0.85rem; color: #64748b; margin-top: 0.25rem; }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    animation: bounce 2s infinite;
+    color: #475569;
+    font-size: 0.85rem;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  /* Section common */
+  section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #818cf8;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #f1f5f9;
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: #94a3b8;
+    max-width: 650px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* Journey Flow */
+  .journey {
+    position: relative;
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .journey-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    position: relative;
+  }
+
+  .journey-step {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .journey-step:hover {
+    border-color: rgba(129, 140, 248, 0.4);
+    background: rgba(129, 140, 248, 0.05);
+    transform: translateY(-4px);
+  }
+
+  .journey-step .step-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.9rem; color: #fff;
+    margin: 0 auto 1rem;
+  }
+
+  .journey-step .step-q {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .journey-step .step-action {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+  }
+
+  .journey-step .step-skill {
+    font-size: 0.8rem;
+    color: #818cf8;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .journey-arrow {
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    .journey-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #334155;
+      font-size: 1.5rem;
+    }
+    .journey-steps {
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+    }
+  }
+
+  /* Skill cards */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .skill-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card:hover {
+    border-color: rgba(129, 140, 248, 0.4);
+    background: rgba(129, 140, 248, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .skill-card .card-category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .cat-core { color: #818cf8; }
+  .cat-explore { color: #34d399; }
+  .cat-material { color: #fbbf24; }
+  .cat-specific { color: #f472b6; }
+  .cat-post { color: #38bdf8; }
+
+  .skill-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 0.5rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .skill-card .card-desc {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .skill-card .card-framework {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(129, 140, 248, 0.1);
+    color: #a5b4fc;
+    border: 1px solid rgba(129, 140, 248, 0.2);
+  }
+
+  .skill-card .card-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+
+  .card-tag {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    background: rgba(255,255,255,0.05);
+    color: #64748b;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Commands */
+  .commands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .command-card {
+    background: linear-gradient(135deg, rgba(129, 140, 248, 0.08), rgba(192, 132, 252, 0.08));
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .command-card:hover {
+    border-color: rgba(129, 140, 248, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .command-card h3 {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 1.2rem;
+    color: #c084fc;
+    margin-bottom: 0.5rem;
+  }
+
+  .command-card .cmd-desc {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .command-card .cmd-flow {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    background: rgba(0,0,0,0.3);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    line-height: 1.8;
+  }
+
+  .cmd-flow .arrow { color: #818cf8; }
+
+  /* Frameworks */
+  .frameworks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .fw-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .fw-card:hover {
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .fw-card .fw-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .fw-card h3 { font-size: 1rem; font-weight: 700; color: #e2e8f0; margin-bottom: 0.5rem; }
+  .fw-card .fw-author { font-size: 0.8rem; color: #818cf8; margin-bottom: 0.75rem; }
+  .fw-card p { font-size: 0.85rem; color: #94a3b8; line-height: 1.6; }
+
+  /* Philosophy */
+  .philosophy {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 24px;
+    padding: 3rem;
+    margin-top: 2rem;
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .philosophy-item h4 {
+    font-size: 1rem;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .philosophy-item p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+
+  .vs-bad { color: #ef4444; font-size: 0.85rem; margin-bottom: 0.25rem; }
+  .vs-good { color: #34d399; font-size: 0.85rem; }
+
+  /* Footer */
+  footer {
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  footer p { font-size: 0.85rem; color: #475569; line-height: 1.8; }
+  footer a { color: #818cf8; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(129, 140, 248, 0.3);
+  }
+
+  .cta-secondary {
+    background: transparent;
+    border: 1px solid rgba(129, 140, 248, 0.4);
+    color: #a5b4fc;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Playground */
+  .playground {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  .playground-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    border-radius: 24px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .playground-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6);
+  }
+
+  .pg-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .pg-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 0.5rem;
+  }
+
+  .pg-header p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+  }
+
+  /* Steps */
+  .pg-step {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .pg-step.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .pg-step-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #818cf8;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .pg-step-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Progress bar */
+  .pg-progress {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+
+  .pg-dot {
+    width: 40px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .pg-dot.done { background: #818cf8; }
+  .pg-dot.current { background: linear-gradient(90deg, #818cf8, #c084fc); width: 60px; }
+
+  /* Option buttons */
+  .pg-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .pg-option {
+    background: rgba(255,255,255,0.03);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .pg-option:hover {
+    border-color: rgba(129, 140, 248, 0.5);
+    background: rgba(129, 140, 248, 0.08);
+  }
+
+  .pg-option.selected {
+    border-color: #818cf8;
+    background: rgba(129, 140, 248, 0.12);
+    box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.3);
+  }
+
+  .pg-option .opt-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .pg-option .opt-desc {
+    font-size: 0.8rem;
+    color: #94a3b8;
+  }
+
+  .pg-options.single-col {
+    grid-template-columns: 1fr;
+  }
+
+  /* Result */
+  .pg-result {
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .pg-result.active { display: block; }
+
+  .pg-result-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .pg-result-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 0.5rem;
+  }
+
+  .pg-result-header p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+  }
+
+  .pg-path {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pg-path-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    transition: all 0.3s ease;
+  }
+
+  .pg-path-step:hover {
+    border-color: rgba(129, 140, 248, 0.3);
+  }
+
+  .pg-path-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.8rem; color: #fff;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pg-path-content { flex: 1; }
+
+  .pg-path-content .path-skill {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #c084fc;
+    margin-bottom: 0.2rem;
+  }
+
+  .pg-path-content .path-desc {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+  .pg-path-content .path-framework {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    background: rgba(129, 140, 248, 0.1);
+    color: #a5b4fc;
+    border: 1px solid rgba(129, 140, 248, 0.2);
+  }
+
+  .pg-summary {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(129, 140, 248, 0.06);
+    border: 1px solid rgba(129, 140, 248, 0.15);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+
+  .pg-summary strong { color: #e2e8f0; }
+
+  .pg-restart {
+    display: block;
+    margin: 1.5rem auto 0;
+    padding: 0.6rem 1.5rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #94a3b8;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+
+  .pg-restart:hover {
+    border-color: rgba(255,255,255,0.3);
+    color: #e2e8f0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="tag-row">
+    <span class="tag">Undergrad</span>
+    <span class="tag">Master's</span>
+    <span class="tag">PhD</span>
+    <span class="tag">Claude Code Skill</span>
+  </div>
+  <h1>Interview Prep Skills</h1>
+  <p class="subtitle">
+    Stop searching scattered platforms for interview advice.
+    A systematic, framework-driven preparation system built for university students.
+  </p>
+  <div class="stats-row">
+    <div class="stat">
+      <div class="num">11</div>
+      <div class="label">Skills</div>
+    </div>
+    <div class="stat">
+      <div class="num">3</div>
+      <div class="label">Workflows</div>
+    </div>
+    <div class="stat">
+      <div class="num">4</div>
+      <div class="label">Frameworks</div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <a href="https://github.com/YalingTan678/interview-prep-skills" class="cta-btn">View on GitHub</a>
+  </div>
+  <div class="scroll-hint">Scroll to explore</div>
+</div>
+
+<!-- Playground -->
+<div class="playground" id="playground">
+  <div class="playground-box">
+    <div class="pg-header">
+      <h2>Find Your Prep Path</h2>
+      <p>Answer 3 questions. Get a personalized skill sequence.</p>
+    </div>
+
+    <div class="pg-progress">
+      <div class="pg-dot current" id="dot-0"></div>
+      <div class="pg-dot" id="dot-1"></div>
+      <div class="pg-dot" id="dot-2"></div>
+      <div class="pg-dot" id="dot-3"></div>
+    </div>
+
+    <!-- Step 0: Identity -->
+    <div class="pg-step active" id="step-0">
+      <div class="pg-step-label">Step 1 of 3</div>
+      <div class="pg-step-title">You are...</div>
+      <div class="pg-options">
+        <button class="pg-option" onclick="selectOption(0, 'undergrad')">
+          <span class="opt-label">Undergrad</span>
+          <span class="opt-desc">Bachelor's student</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(0, 'masters')">
+          <span class="opt-label">Master's</span>
+          <span class="opt-desc">Graduate student</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(0, 'phd')">
+          <span class="opt-label">PhD</span>
+          <span class="opt-desc">Doctoral candidate</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(0, 'other')">
+          <span class="opt-label">Other</span>
+          <span class="opt-desc">Recent grad, gap year, etc.</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 1: Position Type -->
+    <div class="pg-step" id="step-1">
+      <div class="pg-step-label">Step 2 of 3</div>
+      <div class="pg-step-title">What are you applying for?</div>
+      <div class="pg-options">
+        <button class="pg-option" onclick="selectOption(1, 'ta')">
+          <span class="opt-label">Teaching Assistant (TA)</span>
+          <span class="opt-desc">Grader, lab instructor, tutor</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(1, 'ra')">
+          <span class="opt-label">Research Assistant (RA)</span>
+          <span class="opt-desc">Lab position, research role</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(1, 'ga')">
+          <span class="opt-label">GA (Student Services)</span>
+          <span class="opt-desc">Career center, student affairs, advising</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(1, 'internship')">
+          <span class="opt-label">Industry Internship</span>
+          <span class="opt-desc">Summer, co-op, part-time at a company</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(1, 'fulltime')">
+          <span class="opt-label">Full-Time Job</span>
+          <span class="opt-desc">Post-graduation position</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(1, 'unsure')">
+          <span class="opt-label">Not Sure Yet</span>
+          <span class="opt-desc">Still figuring it out</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: Stage -->
+    <div class="pg-step" id="step-2">
+      <div class="pg-step-label">Step 3 of 3</div>
+      <div class="pg-step-title">Where are you in the process?</div>
+      <div class="pg-options single-col">
+        <button class="pg-option" onclick="selectOption(2, 'exploring')">
+          <span class="opt-label">Still exploring</span>
+          <span class="opt-desc">Haven't found a specific position yet</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(2, 'found-jd')">
+          <span class="opt-label">Found a posting / JD</span>
+          <span class="opt-desc">I know what I want to apply for</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(2, 'got-interview')">
+          <span class="opt-label">Got an interview!</span>
+          <span class="opt-desc">Interview is scheduled, need to prepare</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(2, 'interview-tomorrow')">
+          <span class="opt-label">Interview is tomorrow</span>
+          <span class="opt-desc">Emergency mode, need essentials fast</span>
+        </button>
+        <button class="pg-option" onclick="selectOption(2, 'interview-done')">
+          <span class="opt-label">Interview is done</span>
+          <span class="opt-desc">Just finished, need to follow up</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="pg-result" id="pg-result"></div>
+  </div>
+</div>
+
+<script>
+const state = { level: '', position: '', stage: '' };
+const keys = ['level', 'position', 'stage'];
+
+function selectOption(step, value) {
+  state[keys[step]] = value;
+
+  // Highlight selected
+  const btns = document.querySelectorAll(`#step-${step} .pg-option`);
+  btns.forEach(b => b.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+
+  // Delay then advance
+  setTimeout(() => {
+    document.getElementById(`step-${step}`).classList.remove('active');
+    document.getElementById(`dot-${step}`).classList.remove('current');
+    document.getElementById(`dot-${step}`).classList.add('done');
+
+    if (step < 2) {
+      document.getElementById(`step-${step + 1}`).classList.add('active');
+      document.getElementById(`dot-${step + 1}`).classList.add('current');
+    } else {
+      document.getElementById(`dot-3`).classList.add('done');
+      showResult();
+    }
+  }, 300);
+}
+
+function showResult() {
+  const { level, position, stage } = state;
+  const result = document.getElementById('pg-result');
+
+  const levelLabels = { undergrad: 'Undergrad', masters: "Master's", phd: 'PhD', other: 'Student' };
+  const posLabels = { ta: 'TA', ra: 'RA', ga: 'GA (Student Services)', internship: 'Industry Internship', fulltime: 'Full-Time', unsure: 'Undecided' };
+
+  let path = [];
+  let summary = '';
+  let command = '';
+
+  if (stage === 'exploring' || position === 'unsure') {
+    command = '/explore';
+    path = [
+      { skill: 'career-explorer', desc: 'Discover what kind of roles fit your interests, work style, and goals', fw: 'Playing to Win' },
+      { skill: 'jd-decoder', desc: 'When you find a posting that interests you, decode what they really need', fw: 'JTBD' },
+      { skill: 'role-investigator', desc: 'Research the role systematically before committing', fw: 'Continuous Discovery' },
+    ];
+    summary = `You're still exploring - that's completely normal. Start with <strong>career-explorer</strong> to figure out your direction, then use the research skills when you find something interesting. No rush.`;
+  }
+  else if (stage === 'interview-tomorrow') {
+    command = '/quick-prep';
+    const specific = getSpecificSkill(position);
+    path = [
+      { skill: '/quick-prep', desc: 'Emergency 30-min plan: rapid JD scan, your 3 best stories, top 5 questions', fw: '' },
+    ];
+    if (specific) {
+      path.push({ skill: specific.skill, desc: specific.desc, fw: '' });
+    }
+    path.push({ skill: 'thank-you-note', desc: 'Draft your follow-up email tonight so it\'s ready to send tomorrow', fw: '' });
+    summary = `No time for deep research. Focus on <strong>/quick-prep</strong> to get the essentials: 3 stories, 5 questions, a checklist. You've got this.`;
+  }
+  else if (stage === 'interview-done') {
+    path = [
+      { skill: 'thank-you-note', desc: 'Send within 24 hours. Reference one specific moment from the interview.', fw: '' },
+    ];
+    summary = `Your one priority right now: send a <strong>thank-you email</strong> within 24 hours. Make it specific - mention something you actually discussed, not a generic template.`;
+  }
+  else if (stage === 'found-jd') {
+    const specific = getSpecificSkill(position);
+    path = [
+      { skill: 'jd-decoder', desc: 'Analyze the JD to find the employer\'s real, hidden needs', fw: 'JTBD' },
+      { skill: 'role-investigator', desc: 'Research: official sources, LinkedIn previous holders, community platforms', fw: 'Continuous Discovery' },
+      { skill: 'resume-tailor', desc: 'Align your resume to this specific JD - keyword mapping, bullet surgery', fw: '' },
+      { skill: 'value-proposition', desc: 'Map your experiences to their needs, build stories, craft your pitch', fw: 'Value Proposition Design' },
+    ];
+    summary = `You have a target. Start by <strong>decoding the JD</strong>, then <strong>research deeply</strong>, then <strong>tailor your resume</strong>. This puts you ahead of 90% of applicants before you even get an interview.`;
+  }
+  else if (stage === 'got-interview') {
+    command = '/full-prep';
+    const specific = getSpecificSkill(position);
+    path = [
+      { skill: 'jd-decoder', desc: 'Decode the JD if you haven\'t already - find the employer\'s JTBD', fw: 'JTBD' },
+      { skill: 'role-investigator', desc: 'Deep research: LinkedIn, community, interviewer profiling, use their service', fw: 'Continuous Discovery' },
+      { skill: 'value-proposition', desc: 'Build your needs-experience match table with concrete stories', fw: 'Value Proposition Design' },
+    ];
+    if (specific) {
+      path.push({ skill: specific.skill, desc: specific.desc, fw: specific.fw || '' });
+    }
+    path.push({ skill: 'mock-interview', desc: 'Targeted questions based on your analysis + interactive practice', fw: '' });
+    path.push({ skill: 'thank-you-note', desc: 'Prepare your follow-up strategy before the interview', fw: '' });
+    summary = `Full systematic prep with <strong>/full-prep</strong>. Each step builds on the last - the mock questions at the end are derived from your JD analysis and research, not a generic database. That's the difference.`;
+  }
+
+  let pathHTML = '';
+  path.forEach((item, i) => {
+    pathHTML += `
+      <div class="pg-path-step">
+        <div class="pg-path-num">${i + 1}</div>
+        <div class="pg-path-content">
+          <div class="path-skill">${item.skill}</div>
+          <div class="path-desc">${item.desc}</div>
+          ${item.fw ? `<span class="path-framework">${item.fw}</span>` : ''}
+        </div>
+      </div>`;
+  });
+
+  result.innerHTML = `
+    <div class="pg-result-header">
+      <h3>Your Prep Path</h3>
+      <p>${levelLabels[level]} &middot; ${posLabels[position]} &middot; ${command || 'Custom path'}</p>
+    </div>
+    <div class="pg-path">${pathHTML}</div>
+    <div class="pg-summary">${summary}</div>
+    <button class="pg-restart" onclick="resetPlayground()">Start over</button>
+  `;
+
+  result.classList.add('active');
+}
+
+function getSpecificSkill(pos) {
+  const map = {
+    ta: { skill: 'ta-prep', desc: 'TA-specific: teaching demo preparation, teaching philosophy, pedagogy questions', fw: '' },
+    ra: { skill: 'ra-prep', desc: 'RA-specific: PI research alignment, methodology discussion, tools inventory', fw: '' },
+    ga: { skill: 'ga-prep', desc: 'GA-specific: mission alignment, scenario questions, DEI competency, career theories', fw: '' },
+    internship: { skill: 'internship-prep', desc: 'Internship-specific: multi-stage process, "Why this company?", STAR method', fw: '' },
+  };
+  return map[pos] || null;
+}
+
+function resetPlayground() {
+  state.level = ''; state.position = ''; state.stage = '';
+  document.getElementById('pg-result').classList.remove('active');
+  document.getElementById('pg-result').innerHTML = '';
+  document.querySelectorAll('.pg-step').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.pg-dot').forEach(d => { d.classList.remove('done', 'current'); });
+  document.getElementById('step-0').classList.add('active');
+  document.getElementById('dot-0').classList.add('current');
+  document.querySelectorAll('.pg-option').forEach(b => b.classList.remove('selected'));
+}
+</script>
+
+<!-- Journey -->
+<div class="journey">
+  <div class="section-label">Your Journey</div>
+  <div class="section-title">From "I Don't Know" to "I Got the Offer"</div>
+  <p class="section-desc">Every student starts somewhere different. These skills meet you where you are and guide you forward.</p>
+
+  <div class="journey-steps">
+    <div class="journey-step">
+      <div class="step-num">1</div>
+      <div class="step-q">"I don't know what I want"</div>
+      <div class="step-action">Explore</div>
+      <div class="step-skill">/explore</div>
+    </div>
+    <div class="journey-arrow">&rarr;</div>
+    <div class="journey-step">
+      <div class="step-num">2</div>
+      <div class="step-q">"I found a posting"</div>
+      <div class="step-action">Decode & Research</div>
+      <div class="step-skill">jd-decoder + role-investigator</div>
+    </div>
+    <div class="journey-arrow">&rarr;</div>
+    <div class="journey-step">
+      <div class="step-num">3</div>
+      <div class="step-q">"How do I apply?"</div>
+      <div class="step-action">Tailor & Position</div>
+      <div class="step-skill">resume-tailor + value-proposition</div>
+    </div>
+    <div class="journey-arrow">&rarr;</div>
+    <div class="journey-step">
+      <div class="step-num">4</div>
+      <div class="step-q">"I got an interview!"</div>
+      <div class="step-action">Prepare & Practice</div>
+      <div class="step-skill">mock-interview + *-prep</div>
+    </div>
+    <div class="journey-arrow">&rarr;</div>
+    <div class="journey-step">
+      <div class="step-num">5</div>
+      <div class="step-q">"Interview done!"</div>
+      <div class="step-action">Follow Up</div>
+      <div class="step-skill">thank-you-note</div>
+    </div>
+  </div>
+</div>
+
+<!-- Skills -->
+<section>
+  <div class="section-label">Skills</div>
+  <div class="section-title">11 Skills, One Ecosystem</div>
+  <p class="section-desc">Each skill teaches a method you can reuse for every future interview. Not generic tips — structured frameworks.</p>
+
+  <div class="skills-grid">
+    <!-- Core -->
+    <div class="skill-card">
+      <div class="card-category cat-core">Core</div>
+      <h3>jd-decoder</h3>
+      <div class="card-desc">Analyze a job description to reveal what the employer ACTUALLY needs. Decode the hidden requirements behind HR language.</div>
+      <span class="card-framework">Jobs to Be Done</span>
+      <div class="card-tags">
+        <span class="card-tag">keyword analysis</span>
+        <span class="card-tag">priority stack</span>
+        <span class="card-tag">hidden signals</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="card-category cat-core">Core</div>
+      <h3>role-investigator</h3>
+      <div class="card-desc">5-layer research: official sources, LinkedIn previous holders, community platforms (Glassdoor, Reddit, Xiaohongshu), informational interviews, and first-hand experience (use their service yourself).</div>
+      <span class="card-framework">Continuous Discovery</span>
+      <div class="card-tags">
+        <span class="card-tag">official sources</span>
+        <span class="card-tag">LinkedIn + Glassdoor</span>
+        <span class="card-tag">Reddit / Xiaohongshu</span>
+        <span class="card-tag">informational interviews</span>
+        <span class="card-tag">first-hand experience</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="card-category cat-core">Core</div>
+      <h3>value-proposition</h3>
+      <div class="card-desc">Map your experiences to employer needs. Build concrete stories, identify gaps, and craft your positioning statement.</div>
+      <span class="card-framework">Value Proposition Design</span>
+      <div class="card-tags">
+        <span class="card-tag">experience matching</span>
+        <span class="card-tag">story building</span>
+        <span class="card-tag">gap strategy</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="card-category cat-core">Core</div>
+      <h3>mock-interview</h3>
+      <div class="card-desc">Generate targeted questions derived from your JD analysis and value proposition. Interactive practice with real-time feedback. Includes career development theories for counseling roles and thank-you email guidance.</div>
+      <span class="card-framework">JTBD-Driven Questions</span>
+      <div class="card-tags">
+        <span class="card-tag">JTBD questions</span>
+        <span class="card-tag">gap probing</span>
+        <span class="card-tag">mock practice</span>
+        <span class="card-tag">thank-you email</span>
+      </div>
+    </div>
+
+    <!-- Explore -->
+    <div class="skill-card">
+      <div class="card-category cat-explore">Exploration</div>
+      <h3>career-explorer</h3>
+      <div class="card-desc">Don't know what you want yet? Explore your interests, work preferences, and non-negotiables to find your direction.</div>
+      <span class="card-framework">Playing to Win</span>
+      <div class="card-tags">
+        <span class="card-tag">self-assessment</span>
+        <span class="card-tag">position mapping</span>
+        <span class="card-tag">where to play</span>
+      </div>
+    </div>
+
+    <!-- Materials -->
+    <div class="skill-card">
+      <div class="card-category cat-material">Materials</div>
+      <h3>resume-tailor</h3>
+      <div class="card-desc">Strategically align your resume to a specific JD. Keyword mapping, priority reordering, bullet point surgery.</div>
+      <div class="card-tags">
+        <span class="card-tag">keyword mapping</span>
+        <span class="card-tag">bullet surgery</span>
+        <span class="card-tag">gap filling</span>
+      </div>
+    </div>
+
+    <!-- Position-specific -->
+    <div class="skill-card">
+      <div class="card-category cat-specific">Position-Specific</div>
+      <h3>ta-prep</h3>
+      <div class="card-desc">Teaching Assistant interviews: teaching demo preparation, philosophy articulation, pedagogy questions, field-specific adaptations.</div>
+      <div class="card-tags">
+        <span class="card-tag">teaching demo</span>
+        <span class="card-tag">teaching philosophy</span>
+        <span class="card-tag">STEM / humanities</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="card-category cat-specific">Position-Specific</div>
+      <h3>ra-prep</h3>
+      <div class="card-desc">Research Assistant interviews: PI alignment, methodology discussion, tools inventory, balancing your interests with their agenda.</div>
+      <div class="card-tags">
+        <span class="card-tag">PI research</span>
+        <span class="card-tag">methodology</span>
+        <span class="card-tag">tools & software</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="card-category cat-specific">Position-Specific</div>
+      <h3>ga-prep</h3>
+      <div class="card-desc">Graduate Assistantships across all campus offices: career services, student affairs, residential life, DEI centers, admissions, and more. Mission alignment, scenario-based questions, DEI competency.</div>
+      <div class="card-tags">
+        <span class="card-tag">8+ office types</span>
+        <span class="card-tag">scenario questions</span>
+        <span class="card-tag">DEI</span>
+        <span class="card-tag">career theories</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="card-category cat-specific">Position-Specific</div>
+      <h3>internship-prep</h3>
+      <div class="card-desc">Industry internship interviews: multi-stage process, "Why this company?", STAR behavioral questions, potential-over-experience framing.</div>
+      <div class="card-tags">
+        <span class="card-tag">multi-stage</span>
+        <span class="card-tag">STAR method</span>
+        <span class="card-tag">why this company</span>
+      </div>
+    </div>
+
+    <!-- Post -->
+    <div class="skill-card">
+      <div class="card-category cat-post">Post-Interview</div>
+      <h3>thank-you-note</h3>
+      <div class="card-desc">Write effective post-interview follow-up emails. The one rule: reference a specific moment from the conversation.</div>
+      <div class="card-tags">
+        <span class="card-tag">24-hour rule</span>
+        <span class="card-tag">specific reference</span>
+        <span class="card-tag">panel handling</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Commands -->
+<section>
+  <div class="section-label">Workflows</div>
+  <div class="section-title">3 Commands That Chain It All Together</div>
+  <p class="section-desc">Commands chain multiple skills into guided workflows. Pick the one that matches your situation.</p>
+
+  <div class="commands-grid">
+    <div class="command-card">
+      <h3>/full-prep</h3>
+      <div class="cmd-desc">Complete systematic preparation. Takes you from "I have an interview" to "I'm ready." Uses all 4 core skills in sequence.</div>
+      <div class="cmd-flow">
+        jd-decoder <span class="arrow">&rarr;</span> role-investigator <span class="arrow">&rarr;</span><br>
+        value-proposition <span class="arrow">&rarr;</span> mock-interview
+      </div>
+    </div>
+
+    <div class="command-card">
+      <h3>/quick-prep</h3>
+      <div class="cmd-desc">Interview tomorrow? 30-minute emergency plan. Rapid JD scan, your 3 best stories, top 5 questions, and a checklist.</div>
+      <div class="cmd-flow">
+        rapid JD scan <span class="arrow">&rarr;</span> 3 stories <span class="arrow">&rarr;</span><br>
+        5 questions <span class="arrow">&rarr;</span> checklist
+      </div>
+    </div>
+
+    <div class="command-card">
+      <h3>/explore</h3>
+      <div class="cmd-desc">Don't have a specific position yet? Figure out what kind of roles suit you, then map to specific positions.</div>
+      <div class="cmd-flow">
+        self-assessment <span class="arrow">&rarr;</span> position mapping <span class="arrow">&rarr;</span><br>
+        next steps
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Frameworks -->
+<section>
+  <div class="section-label">Foundations</div>
+  <div class="section-title">Built on Proven Frameworks</div>
+  <p class="section-desc">We adapted product strategy frameworks to interview preparation. The same logic that helps companies win customers helps you win offers.</p>
+
+  <div class="frameworks-grid">
+    <div class="fw-card">
+      <div class="fw-icon">&#127919;</div>
+      <h3>Jobs to Be Done</h3>
+      <div class="fw-author">Anthony W. Ulwick</div>
+      <p>The employer has a problem to solve. Understand that problem, and you'll understand what they really need from you.</p>
+    </div>
+
+    <div class="fw-card">
+      <div class="fw-icon">&#128269;</div>
+      <h3>Continuous Discovery</h3>
+      <div class="fw-author">Teresa Torres</div>
+      <p>Research systematically before you "sell." Official sources, previous holders, community platforms, first-hand experience.</p>
+    </div>
+
+    <div class="fw-card">
+      <div class="fw-icon">&#128161;</div>
+      <h3>Value Proposition Design</h3>
+      <div class="fw-author">Strategyzer</div>
+      <p>You are the "product." The employer is the "customer." Connect your specific experiences to their specific needs.</p>
+    </div>
+
+    <div class="fw-card">
+      <div class="fw-icon">&#9823;</div>
+      <h3>Playing to Win</h3>
+      <div class="fw-author">Roger L. Martin</div>
+      <p>Before deciding how to win, decide where to play. Choose the right positions before preparing for them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section>
+  <div class="philosophy">
+    <div class="section-label">Philosophy</div>
+    <div class="section-title">Methods, Not Answers</div>
+    <div class="philosophy-grid">
+      <div class="philosophy-item">
+        <h4>Teach frameworks</h4>
+        <div class="vs-bad">Not: "Here are common interview questions"</div>
+        <div class="vs-good">Instead: "Here's how to derive the questions yourself"</div>
+      </div>
+      <div class="philosophy-item">
+        <h4>Interactive, not passive</h4>
+        <div class="vs-bad">Not: dump a 10-page guide</div>
+        <div class="vs-good">Instead: step-by-step with checkpoints</div>
+      </div>
+      <div class="philosophy-item">
+        <h4>Specific, not generic</h4>
+        <div class="vs-bad">Not: "Research the company"</div>
+        <div class="vs-good">Instead: "Search LinkedIn for previous holders. Note what they did before and after."</div>
+      </div>
+      <div class="philosophy-item">
+        <h4>Build stories, not scripts</h4>
+        <div class="vs-bad">Not: pre-written answers to memorize</div>
+        <div class="vs-good">Instead: frameworks to think through your own stories</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p style="margin-bottom: 1.5rem;">
+    <a href="https://github.com/YalingTan678/interview-prep-skills" class="cta-btn">Get Started on GitHub</a>
+  </p>
+  <p>
+    Inspired by <a href="https://github.com/phuryn/pm-skills">PM Skills Marketplace</a> by Pawe&#322; Huryn.
+    <br>
+    Frameworks by Anthony W. Ulwick, Teresa Torres, Strategyzer, and Roger L. Martin.
+  </p>
+</footer>
+
+</body>
+</html>

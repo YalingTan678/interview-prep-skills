@@ -91,6 +91,12 @@ Structure your response as:
 
 ## What This Means for Your Prep
 [3-5 bullet points: concrete actions the student should take based on this analysis]
+
+## Theory Alert (if applicable)
+[If the role involves counseling, advising, or student development: flag that the interviewer
+likely has a counseling background and may value knowledge of career development theories —
+Holland's RIASEC, Super's Life-Span Theory, Krumboltz's Happenstance, SCCT.
+Tell the student to check ga-prep for details. Skip this section if the role is not counseling-related.]
 ```
 
 ## Adaptation by position type

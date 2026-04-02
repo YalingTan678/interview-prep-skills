@@ -77,7 +77,7 @@ Build a 30-second positioning statement (their answer to "Tell me about yourself
 > "I'm a [level] in [field] at [school]. [One sentence connecting your background to this role's core need]. What draws me to this position is [specific connection to their JTBD — not generic "I'm passionate about..."]. [One concrete proof point — your strongest story in one sentence]."
 
 **Rules:**
-- Under 30 seconds when spoken aloud — roughly 4-5 sentences max. If you can't say it in one calm breath with a natural pause, it's too long. Have the student time themselves reading it aloud.
+- Under 30 seconds when spoken aloud — 4-5 sentences max, no exceptions. If you can't say it in one calm breath with a natural pause, it's too long. Have the student time themselves reading it aloud.
 - Must reference the employer's need, not just your experience
 - Must include one concrete detail (a number, a name, a result)
 - No filler words ("passionate," "excited," "hard-working")

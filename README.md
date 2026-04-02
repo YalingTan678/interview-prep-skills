@@ -65,21 +65,21 @@ These skills teach **methods, not answers**. Instead of giving students generic 
 
 ```
 interview-prep-skills/
-├── career-explorer/SKILL.md      ← 探索方向 (Where to Play)
-├── jd-decoder/SKILL.md           ← 拆解 JD (JTBD)
-├── role-investigator/SKILL.md    ← 系统调研 (Continuous Discovery)
-├── resume-tailor/SKILL.md        ← 简历定制
-├── value-proposition/SKILL.md    ← 价值主张匹配
-├── mock-interview/SKILL.md       ← 模拟面试 + 反馈
-├── thank-you-note/SKILL.md       ← 感谢信
-├── ta-prep/SKILL.md              ← TA 面试专项
-├── ra-prep/SKILL.md              ← RA 面试专项
-├── ga-prep/SKILL.md              ← GA（学生服务）面试专项
-├── internship-prep/SKILL.md      ← 实习面试专项
+├── career-explorer/SKILL.md      ← Career direction exploration (Where to Play)
+├── jd-decoder/SKILL.md           ← Decode job descriptions (JTBD)
+├── role-investigator/SKILL.md    ← Systematic role research (Continuous Discovery)
+├── resume-tailor/SKILL.md        ← Strategic resume alignment
+├── value-proposition/SKILL.md    ← Experience-to-needs matching
+├── mock-interview/SKILL.md       ← Mock interview + feedback
+├── thank-you-note/SKILL.md       ← Post-interview follow-up
+├── ta-prep/SKILL.md              ← Teaching Assistant specialization
+├── ra-prep/SKILL.md              ← Research Assistant specialization
+├── ga-prep/SKILL.md              ← Graduate Assistantship (all campus offices)
+├── internship-prep/SKILL.md      ← Industry internship specialization
 └── commands/
-    ├── full-prep.md              ← 完整准备流程
-    ├── quick-prep.md             ← 紧急准备模式
-    └── explore.md                ← 职业探索流程
+    ├── full-prep.md              ← Complete preparation workflow
+    ├── quick-prep.md             ← Emergency prep mode
+    └── explore.md                ← Career exploration workflow
 ```
 
 ## Acknowledgments

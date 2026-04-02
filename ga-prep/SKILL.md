@@ -12,6 +12,23 @@ description: >
 
 GA interviews in student services are their own world — they care about mission alignment, DEI competency, and how you handle emotional situations. This skill supplements the core workflow with GA-specific preparation.
 
+## GA positions are everywhere — not just career centers
+
+Universities have GAs across dozens of offices. Each has different priorities, but they share common interview patterns. Here are the most common types:
+
+| GA Type | Examples | They especially value |
+|---|---|---|
+| **Career services** | CCO, career center, employer relations | Counseling skills, career theory knowledge, resume/interview expertise |
+| **Student affairs** | Dean of Students, student conduct, orientation | Policy knowledge, crisis management, judgment |
+| **Residential life** | Residence halls, housing | Community building, conflict resolution, on-call availability |
+| **Academic support** | Tutoring center, writing center, academic advising | Subject expertise, patience, learning strategies |
+| **DEI / Multicultural** | Cultural centers, LGBTQ+ resource center, international student services | Cultural competence, programming, advocacy |
+| **Admissions / Enrollment** | Admissions office, financial aid, registrar | Communication, attention to detail, representing the university |
+| **Recreation / Wellness** | Campus rec, counseling center, health promotion | Wellness knowledge, program design, outreach |
+| **Communications / Marketing** | University communications, alumni relations, development | Writing, social media, event planning, design |
+
+When the student tells you which office, adapt your guidance to that specific type. The frameworks below (mission alignment, scenario questions, DEI) apply to all, but the emphasis shifts.
+
 ## What makes student services GA interviews different
 
 1. **Mission alignment is everything** — they want to know you genuinely care about the office's purpose, not just the funding
@@ -72,9 +89,9 @@ These questions test your instincts. There's a pattern to answering well:
 3. **Cultural humility** — the recognition that you DON'T know everything about other people's experiences, and that's OK as long as you listen and learn
 4. **Proactive inclusion** — not just serving diverse students who show up, but reaching out to communities that underuse services
 
-## Career Development Theories (for career center GAs)
+## Career Development Theories (career center & advising GAs)
 
-If the GA is at a career center, the interviewer likely has a counseling background and may value theoretical grounding:
+If the GA involves career advising, academic advising, or counseling of any kind, the interviewer likely has a counseling or student development background and may value theoretical grounding:
 
 - **Holland's RIASEC** — 6 personality types mapped to work environments (Realistic, Investigative, Artistic, Social, Enterprising, Conventional). Useful for helping students explore interests.
 - **Super's Life-Span Theory** — career development as a lifelong process with stages. Helps normalize "not knowing" for students.
