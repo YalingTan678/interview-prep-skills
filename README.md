@@ -77,3 +77,13 @@ interview-prep-skills/
     ├── quick-prep.md             ← 紧急准备模式
     └── explore.md                ← 职业探索流程
 ```
+
+## Acknowledgments
+
+The architecture and framework selection for this project were inspired by [PM Skills Marketplace](https://github.com/phuryn/pm-skills) by Paweł Huryn. Their approach of applying product thinking frameworks (JTBD, Value Proposition Design, Continuous Discovery Habits, Playing to Win) through structured, interactive AI skills directly influenced how we designed this interview prep ecosystem. We adapted these product strategy frameworks to the domain of interview preparation for university students.
+
+The frameworks themselves are based on the work of:
+- Anthony W. Ulwick — *Jobs to Be Done*
+- Strategyzer — *Value Proposition Design*
+- Teresa Torres — *Continuous Discovery Habits*
+- Roger L. Martin — *Playing to Win*
