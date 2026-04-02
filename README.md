@@ -2,6 +2,10 @@
 
 Systematic interview preparation skills for university students (undergrad, master's, PhD). Uses product thinking frameworks (JTBD, Value Proposition Design, Continuous Discovery, Playing to Win) applied to interview prep.
 
+![Skills Overview](assets/skills-overview.png)
+
+![Workflows Overview](assets/workflows-overview.png)
+
 ## Core Skills
 
 | Skill | What it does | Framework |
