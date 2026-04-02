@@ -1,0 +1,4 @@
+interview-prep-workspace/
+*.pyc
+__pycache__/
+.DS_Store
